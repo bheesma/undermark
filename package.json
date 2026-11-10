@@ -1,0 +1,150 @@
+{
+  "name": "undermark",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Visual editor for the Undermark (.umk) format",
+  "scripts": {
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "page": "npm run build && open dist/test-page/index.html",
+    "test:vscode": "npm run build && vscode-test"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^30.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^26.6.6",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "esbuild": "^0.28.2",
+    "jsdom": "^29.1.1",
+    "mocha": "^12.0.3",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@tiptap/core": "^3.33.0",
+    "@tiptap/extension-code": "^3.33.0",
+    "@tiptap/extension-code-block-lowlight": "^3.33.0",
+    "@tiptap/extension-list": "^3.33.0",
+    "@tiptap/pm": "^3.33.0",
+    "@tiptap/starter-kit": "^3.33.0",
+    "@tiptap/suggestion": "^3.33.0",
+    "lowlight": "^3.3.0"
+  },
+  "displayName": "Undermark",
+  "publisher": "undermark-dev",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./dist/extension.cjs",
+  "categories": [
+    "Other"
+  ],
+  "license": "UNLICENSED",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "undermark.editor",
+        "displayName": "Undermark",
+        "selector": [
+          {
+            "filenamePattern": "*.umk"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "configuration": {
+      "title": "Undermark",
+      "properties": {
+        "undermark.lineSpacing": {
+          "type": "number",
+          "default": 1.8,
+          "minimum": 1.0,
+          "maximum": 2.5,
+          "description": "Line height as a multiple of the font size (1.0 to 2.5). The toolbar shows the result in pixels."
+        },
+        "undermark.imageStorage": {
+          "type": "string",
+          "enum": [
+            "assetsFolder",
+            "embedded"
+          ],
+          "enumDescriptions": [
+            "Save pasted pictures in a folder beside the document (notes.umk uses notes.assets)",
+            "Embed pasted pictures inside the document"
+          ],
+          "default": "assetsFolder",
+          "description": "Where pasted pictures are stored."
+        },
+        "undermark.embedWarningKB": {
+          "type": "number",
+          "default": 500,
+          "minimum": 50,
+          "maximum": 5000,
+          "description": "Size in KB above which embedding a picture asks for confirmation."
+        },
+        "undermark.pdfBrowserPath": {
+          "type": "string",
+          "default": "",
+          "description": "Browser used to print PDFs (Chrome, Edge or Chromium). Leave empty to find one automatically."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "undermark.exportHtml",
+        "title": "Export as HTML…",
+        "category": "Undermark"
+      },
+      {
+        "command": "undermark.exportPdf",
+        "title": "Export as PDF…",
+        "category": "Undermark"
+      },
+      {
+        "command": "undermark.exportMarkdown",
+        "title": "Export as Markdown…",
+        "category": "Undermark"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "undermark.export",
+        "label": "Undermark Export"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "submenu": "undermark.export",
+          "when": "explorerResourceIsFolder || resourceExtname == .umk",
+          "group": "7_modification@90"
+        }
+      ],
+      "undermark.export": [
+        {
+          "command": "undermark.exportHtml",
+          "group": "1@1"
+        },
+        {
+          "command": "undermark.exportPdf",
+          "group": "1@2"
+        },
+        {
+          "command": "undermark.exportMarkdown",
+          "group": "1@3"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "submenu": "undermark.export",
+          "when": "resourceExtname == .umk",
+          "group": "7_export"
+        }
+      ]
+    }
+  }
+}

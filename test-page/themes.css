@@ -1,0 +1,34 @@
+/* Stand-ins for the variables VS Code supplies to webviews, so the editor can be tried in a plain browser. */
+body.vscode-light {
+  --vscode-editor-foreground:#1f1f1f; --vscode-editor-background:#ffffff; --vscode-foreground:#3b3b3b; --vscode-focusBorder:#005fb8;
+  --vscode-widget-border:#c8c8c8; --vscode-button-background:#005fb8; --vscode-button-foreground:#ffffff; --vscode-button-secondaryBackground:#e8e8e8;
+  --vscode-button-secondaryHoverBackground:#dcdcdc; --vscode-textLink-foreground:#005fb8; --vscode-textLink-activeForeground:#0258a8;
+  --vscode-textCodeBlock-background:#f0f0f0; --vscode-descriptionForeground:#6b6b6b; --vscode-input-background:#fff; --vscode-input-foreground:#1f1f1f;
+  --vscode-editorWidget-background:#f8f8f8; --vscode-list-activeSelectionBackground:#d6ebff; --vscode-list-activeSelectionForeground:#1f1f1f;
+  --vscode-terminal-ansiYellow:#cca700; --vscode-terminal-ansiGreen:#107c10; --vscode-terminal-ansiBlue:#0451a5;
+  --vscode-terminal-ansiRed:#cd3131; --vscode-terminal-ansiMagenta:#bc05bc; --vscode-terminal-ansiCyan:#0598bc;
+}
+body.vscode-dark {
+  --vscode-editor-foreground:#cccccc; --vscode-editor-background:#1f1f1f; --vscode-foreground:#cccccc; --vscode-focusBorder:#0078d4;
+  --vscode-widget-border:#454545; --vscode-button-background:#0078d4; --vscode-button-foreground:#ffffff; --vscode-button-secondaryBackground:#313131;
+  --vscode-button-secondaryHoverBackground:#3c3c3c; --vscode-textLink-foreground:#4daafc; --vscode-textLink-activeForeground:#4daafc;
+  --vscode-textCodeBlock-background:#2b2b2b; --vscode-descriptionForeground:#9d9d9d; --vscode-input-background:#313131; --vscode-input-foreground:#cccccc;
+  --vscode-editorWidget-background:#202020; --vscode-list-activeSelectionBackground:#04395e; --vscode-list-activeSelectionForeground:#ffffff;
+  --vscode-terminal-ansiYellow:#e5e510; --vscode-terminal-ansiGreen:#0dbc79; --vscode-terminal-ansiBlue:#2472c8;
+  --vscode-terminal-ansiRed:#f14c4c; --vscode-terminal-ansiMagenta:#bc3fbc; --vscode-terminal-ansiCyan:#11a8cd;
+}
+body.vscode-high-contrast {
+  --vscode-editor-foreground:#ffffff; --vscode-editor-background:#000000; --vscode-foreground:#ffffff; --vscode-focusBorder:#f38518;
+  --vscode-widget-border:#6fc3df; --vscode-contrastBorder:#6fc3df; --vscode-button-background:#000; --vscode-button-foreground:#fff; --vscode-button-secondaryBackground:#000;
+  --vscode-button-secondaryHoverBackground:#222; --vscode-textLink-foreground:#21a6ff; --vscode-textLink-activeForeground:#21a6ff;
+  --vscode-textCodeBlock-background:#000; --vscode-descriptionForeground:#fff; --vscode-input-background:#000; --vscode-input-foreground:#fff;
+  --vscode-editorWidget-background:#0c141f; --vscode-list-activeSelectionBackground:#000; --vscode-list-activeSelectionForeground:#fff;
+  --vscode-terminal-ansiYellow:#e5e510; --vscode-terminal-ansiGreen:#0dbc79; --vscode-terminal-ansiBlue:#3b8eea;
+  --vscode-terminal-ansiRed:#f14c4c; --vscode-terminal-ansiMagenta:#d670d6; --vscode-terminal-ansiCyan:#29b8db;
+}
+body { margin: 0; background: var(--vscode-editor-background); }
+.demo-bar { display: flex; gap: 12px; align-items: center; padding: 6px 12px; font: 12px system-ui; color: var(--vscode-foreground); background: var(--vscode-editorWidget-background); }
+.demo-split { display: grid; grid-template-columns: 1fr 22rem; align-items: start; }
+.demo-file { position: sticky; top: 0; margin: 0; padding: 12px; height: 100vh; overflow: auto; box-sizing: border-box; font: 12px/1.4 ui-monospace, monospace; white-space: pre-wrap;
+  color: var(--vscode-foreground); border-left: 1px solid var(--vscode-widget-border); }
+@media (max-width: 800px) { .demo-split { grid-template-columns: 1fr; } .demo-file { display: none; } }

@@ -1,0 +1,8 @@
+**
+!dist/extension.cjs
+!dist/webview/main.js
+!dist/webview/editor.css
+!package.json
+!README.md
+!LICENSE
+!docs/format-spec.md

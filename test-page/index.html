@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undermark editor – test page</title>
+<link rel="stylesheet" href="themes.css">
+<link rel="stylesheet" href="editor.css">
+</head>
+<body class="vscode-dark">
+<div class="demo-bar">
+  <label>Theme <select id="theme"><option value="vscode-light">Light</option><option value="vscode-dark" selected>Dark</option><option value="vscode-high-contrast">High contrast</option></select></label>
+  <label>Line spacing <input id="spacing" type="range" min="1" max="2.5" step="0.1" value="1.5"></label>
+  <span>Test page only. The right pane shows the exact text that would be saved in the .umk file.</span>
+</div>
+<div class="demo-split">
+  <div id="root"></div>
+  <pre class="demo-file" id="file" aria-label="File contents"></pre>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
