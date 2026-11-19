@@ -42,7 +42,11 @@
   "categories": [
     "Other"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bheesma/undermark.git"
+  },
   "contributes": {
     "customEditors": [
       {

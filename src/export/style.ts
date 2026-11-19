@@ -6,7 +6,8 @@ export const EXPORT_CSS = `
   --t-keyword: #79c0ff; --t-string: #7ee787; --t-number: #56d4dd; --t-title: #e3b341; --t-attr: #d2a8ff; --t-type: #ff7b72; } }
 body { margin: 0; color: var(--fg); background: var(--bg); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.6; }
 main { max-width: 52rem; margin: 0 auto; padding: 24px; }
-h1 { font-size: 1.9em; margin: .8em 0 .4em; padding: 0 .4em .15em 0; width: fit-content; max-width: 100%; border-bottom: 3px double var(--rule); }
+h1 { position: relative; font-size: 1.9em; margin: .8em 0 .4em; padding: 0 .4em .7em 0; width: fit-content; max-width: 100%; }
+h1::after { content: "========================================================================================================================================================================================================"; position: absolute; left: 0; right: -.4em; width: round(down, calc(100% + .4em), 1ch); bottom: 0; height: 1em; overflow: hidden; white-space: nowrap; font: 700 .8em/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: 0; color: var(--rule); user-select: none; pointer-events: none; }
 h2 { font-size: 1.45em; margin: .8em 0 .4em; padding: 0 .4em .1em 0; width: fit-content; max-width: 100%; border-bottom: 1px solid var(--rule); }
 h3 { font-size: 1.15em; margin: .8em 0 .4em; }
 p, ul, ol { margin: 0 0 .8em; }

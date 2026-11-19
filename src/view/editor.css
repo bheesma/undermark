@@ -31,7 +31,8 @@
 .umk-page { max-width: 52rem; margin: 0 auto; padding: 16px 24px 25vh; }
 .umk-page .ProseMirror { outline: none; line-height: var(--umk-line-height); min-height: 50vh; }
 .ProseMirror p { margin: 0 0 .6em; }
-.ProseMirror h1 { font-size: 1.9em; margin: .8em 0 .4em; padding: 0 .4em .15em 0; width: fit-content; max-width: 100%; border-bottom: 3px double var(--vscode-foreground); }
+.ProseMirror h1 { position: relative; font-size: 1.9em; margin: .8em 0 .4em; padding: 0 .4em .7em 0; width: fit-content; max-width: 100%; }
+.ProseMirror h1::after { content: "========================================================================================================================================================================================================"; position: absolute; left: 0; right: -.4em; width: round(down, calc(100% + .4em), 1ch); bottom: 0; height: 1em; overflow: hidden; white-space: nowrap; font: 700 .8em/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: 0; color: var(--vscode-foreground); user-select: none; pointer-events: none; }
 .ProseMirror h2 { font-size: 1.45em; margin: .8em 0 .4em; padding: 0 .4em .1em 0; width: fit-content; max-width: 100%; border-bottom: 1px solid var(--vscode-foreground); }
 .ProseMirror h3 { font-size: 1.15em; margin: .8em 0 .3em; font-weight: bold; }
 .ProseMirror ul, .ProseMirror ol { margin: 0 0 .6em; padding-left: 1.6em; }
